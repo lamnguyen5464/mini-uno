@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:ads="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="220dp"
+    android:background="@drawable/custom_dialog">
+    <TextView
+        android:layout_marginTop="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BEST"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:id="@+id/best"
+        android:layout_marginLeft="60dp"
+        />
+    <TextView
+        android:layout_alignTop="@+id/best"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:id="@+id/bestscore"
+        android:layout_toRightOf="@+id/best"
+        android:layout_marginLeft="20dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:id="@+id/newscore"
+        android:layout_alignLeft="@+id/bestscore"
+        android:layout_below="@+id/bestscore"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NEW"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:id="@+id/new_point"
+        android:layout_below="@+id/best"
+        android:layout_alignLeft="@+id/best"/>
+
+    <ImageButton
+        android:id="@+id/repl"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="11dp"
+        android:src="@drawable/replay"
+        android:scaleType="fitXY"
+        android:background="@drawable/custom_button_in_dialog"
+        android:layout_below="@+id/newscore"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="37dp"
+        android:layout_marginStart="37dp" />
+
+    <ImageButton
+        android:id="@+id/home"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:scaleType="fitXY"
+        android:background="@drawable/custom_button_in_dialog"
+        android:src="@drawable/home"
+        android:layout_alignTop="@+id/repl"
+        android:layout_toRightOf="@+id/new_point"
+        android:layout_toEndOf="@+id/new_point" />
+
+    <TextView
+        android:id="@+id/iconNew"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#ff0004"
+        android:text="NEW"
+        android:layout_alignTop="@+id/bestscore"
+        android:layout_toRightOf="@+id/bestscore"
+        android:layout_toEndOf="@+id/bestscore" />
+
+
+</RelativeLayout>

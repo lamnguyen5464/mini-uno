@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:ads="http://schemas.android.com/tools"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:background="@color/bg5"
+
+    android:orientation="vertical"
+    tools:context="com.example.lforestor.superminiuno.MainActivity">
+
+    <Button
+        android:id="@+id/bt"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/custom_button"
+        android:text="Play"
+        android:padding="5dp"
+        android:textSize="20sp"
+        android:textColor="#464646"
+        android:layout_centerHorizontal="true"
+        android:clickable="true"
+        android:drawableTop="@drawable/iconmenu1"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/pic"/>
+
+    <Button
+        android:id="@+id/bt3"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/custom_button2"
+        android:padding="5dp"
+        android:text="About"
+        android:drawableTop="@drawable/iconmenu2"
+        android:textSize="20sp"
+        android:textColor="#464646"
+        android:layout_toLeftOf="@+id/center"
+        android:layout_marginRight="5dp"
+        android:layout_alignTop="@+id/center"/>
+    <Button
+        android:id="@+id/bt2"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/custom_button3"
+        android:padding="5dp"
+        android:text="Quit"
+        android:drawableTop="@drawable/iconmenu3"
+        android:textSize="20sp"
+        android:textColor="#464646"
+        android:layout_toRightOf="@+id/center"
+        android:layout_marginLeft="5dp"
+        android:layout_alignTop="@+id/center"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Version 2.5"
+        android:textColor="#FF595959"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:paddingRight="10dp"
+        android:paddingBottom="5dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/center"
+        android:text=""
+        android:textColor="#FF595959"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/bt"/>
+
+    <ImageView
+        android:id="@+id/pic"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp"
+        android:src="@drawable/icon" />
+    <com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/banner"/>
+
+
+</RelativeLayout>
