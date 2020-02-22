@@ -3,21 +3,28 @@ package com.example.lforestor.superminiuno;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Point;
+import android.graphics.Typeface;
 import android.media.Image;
 import android.media.tv.TvContract;
+import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Display;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -25,7 +32,7 @@ import java.util.Random;
 public class MainActivity extends Activity {
     ImageView pic;
     Button bt,bt2,bt3,close;
-    TextView txt;
+    TextView txt,nameTag;
     ArrayList<card> arr;
     Random rand;
     Dialog dialog;
@@ -34,10 +41,32 @@ public class MainActivity extends Activity {
 
     int[] head = new int[50];
     void determined(){
+        pic = (ImageView) findViewById(R.id.pic);
         bt  = (Button) findViewById(R.id.bt);
         bt2 = (Button) findViewById(R.id.bt2);
         bt3 = (Button) findViewById(R.id.bt3);
+        nameTag = (TextView) findViewById(R.id.nametag);
         sound = new SoundPlayer(this);
+
+        //add font
+        Typeface typeface = ResourcesCompat.getFont(this, R.font.math_tapping);
+        bt.setTypeface(typeface);
+        bt2.setTypeface(typeface);
+        bt3.setTypeface(typeface);
+        nameTag.setTypeface(typeface);
+
+        //get dimension
+        Display display = getWindowManager().getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        int screenWidth = size.x;
+        int screenHeight = size.y;
+
+        //scale
+        RelativeLayout.LayoutParams params1 = (RelativeLayout.LayoutParams) pic.getLayoutParams();
+        params1.height = (int)(screenHeight/3);
+        params1.width = (int)(screenHeight/3);
+        pic.setLayoutParams(params1);
     }
     void add(){
         arr = new ArrayList<>();
@@ -132,12 +161,6 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //ads
-                MobileAds.initialize(this,"ca-app-pub-8228726508975919~1830224981");
-                AdView admview = (AdView)findViewById(R.id.adView);
-                AdRequest adRequest = new AdRequest.Builder().build();
-                admview.loadAd(adRequest);
-        //ads
         determined();
         set_dialog();
         add();

@@ -6,6 +6,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.graphics.Point;
+import android.graphics.Typeface;
 import android.media.Image;
 import android.media.MediaPlayer;
 import android.os.Build;
@@ -13,9 +15,11 @@ import android.os.CountDownTimer;
 import android.os.Handler;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
+import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Display;
 import android.view.SoundEffectConstants;
 import android.view.View;
 import android.view.Window;
@@ -43,7 +47,7 @@ public class GroundPlay extends Activity {
     ImageView pic;
     ImageButton bt1, bt2, repl, home,btsound;
     ProgressBar pb;
-    TextView point,newscore,bestscore, plus1,icon_new,or;
+    TextView point,newscore,bestscore, plus1,icon_new,or,text_newscore,text_bestscore;
     short answer;
     Dialog dialog;
     int mark = 0,timeup = 1000, tick = 1, add = 15, card;
@@ -72,8 +76,34 @@ public class GroundPlay extends Activity {
         sound = new SoundPlayer(GroundPlay.this);
         animation = AnimationUtils.loadAnimation(this,R.anim.replay);
 
+        //add font
+        Typeface typeface = ResourcesCompat.getFont(this, R.font.math_tapping);
+        point.setTypeface(typeface);
+        or.setTypeface(typeface);
+        //
+
+        //Get screen devices's dimension
+        Display display = getWindowManager().getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        int screenWidth = size.x;
+        int screenHeight = size.y;
 
 
+        RelativeLayout.LayoutParams params1 = (RelativeLayout.LayoutParams) bt1.getLayoutParams();
+        params1.height = (int)(screenWidth/2.2*3/2);
+        params1.width = (int)(screenWidth/2.2);
+        bt1.setLayoutParams(params1);
+
+        RelativeLayout.LayoutParams params2 = (RelativeLayout.LayoutParams) bt2.getLayoutParams();
+        params2.height = (int)(screenWidth/2.2*3/2);
+        params2.width = (int)(screenWidth/2.2);
+        bt2.setLayoutParams(params2);
+
+        RelativeLayout.LayoutParams params3 = (RelativeLayout.LayoutParams) pic.getLayoutParams();
+        params3.height = (int)(screenHeight/3);
+        params3.width = (int)(screenHeight/3*2/3);
+        pic.setLayoutParams(params3);
     }
     int generate_ranom(int num){
         int p = rand.nextInt(arr.size()-1)+1;
@@ -98,6 +128,7 @@ public class GroundPlay extends Activity {
         return p;
     }
     void show(){
+        rand_background();
         int pos = rand.nextInt(arr.size()-5) + 1;  // avoid the first element of arr
         pic.setImageResource(arr.get(pos).getPic());
         int ans = rand.nextInt(25);
@@ -176,7 +207,15 @@ public class GroundPlay extends Activity {
         home = (ImageButton) dialog.findViewById(R.id.home);
         newscore = (TextView) dialog.findViewById(R.id.newscore);
         bestscore = (TextView) dialog.findViewById(R.id.bestscore);
+        text_newscore = (TextView) dialog.findViewById(R.id.best);
+        text_bestscore = (TextView) dialog.findViewById(R.id.new_point);
         icon_new = (TextView) dialog.findViewById(R.id.iconNew);
+        //add font
+        Typeface typeface = ResourcesCompat.getFont(this, R.font.math_tapping);
+        newscore.setTypeface(typeface);
+        bestscore.setTypeface(typeface);
+        text_newscore.setTypeface(typeface);
+        text_bestscore.setTypeface(typeface);
         icon_new.setVisibility(View.INVISIBLE);
     }
     void show_bonus(){
@@ -286,7 +325,6 @@ public class GroundPlay extends Activity {
                 dialog.cancel();
                 bt1.setEnabled(true); bt2.setEnabled(true);
                 or.setVisibility(View.VISIBLE);
-                rand_background();
                 //anim
                 bt1.startAnimation(animation); bt2.startAnimation(animation);
                 pic.startAnimation(animation);

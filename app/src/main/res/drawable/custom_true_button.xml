@@ -3,6 +3,6 @@
     <item android:state_pressed="true"
           android:drawable="@color/colorTrue"></item>
     <item
-        android:drawable="@android:color/transparent">
+        android:drawable="@drawable/imageviewborder">
     </item>
 </selector>

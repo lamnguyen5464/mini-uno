@@ -2,7 +2,9 @@ package com.example.lforestor.superminiuno;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.v4.content.res.ResourcesCompat;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
@@ -24,8 +26,15 @@ public class splash extends Activity {
         imageView.startAnimation(animation);
         textView.startAnimation(animation);
         textView2.startAnimation(animation);
+
+        Typeface typeface = ResourcesCompat.getFont(this, R.font.math_tapping);
+        textView.setTypeface(typeface);
+        textView2.setTypeface(typeface);
+
         Timer timer = new Timer();
         timer.schedule(new after_delay(),1000);
+
+
     }
 
     class after_delay extends TimerTask{

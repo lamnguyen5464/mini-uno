@@ -2,48 +2,70 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:ads="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    android:layout_width="wrap_content"
-    android:layout_height="220dp"
+    android:layout_width="320dp"
+    android:layout_height="240dp"
     android:background="@drawable/custom_dialog">
     <TextView
-        android:layout_marginTop="30dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:id="@+id/scale"
+        android:text="|"
+        />
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="BEST"
-        android:textSize="25sp"
+        android:text="Score:"
+        android:textSize="40dp"
         android:textStyle="bold"
         android:id="@+id/best"
-        android:layout_marginLeft="60dp"
+        android:layout_marginLeft="50dp"
+        android:textColor="#2f2f2f"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/math_tapping"
         />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bezt:"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        android:textColor="#2f2f2f"
+        android:id="@+id/new_point"
+        android:layout_below="@+id/best"
+        android:layout_alignLeft="@+id/best"
+        android:fontFamily="@font/math_tapping"/>
     <TextView
         android:layout_alignTop="@+id/best"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        android:id="@+id/bestscore"
-        android:layout_toRightOf="@+id/best"
-        android:layout_marginLeft="20dp"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="0"
-        android:textSize="25sp"
-        android:textStyle="bold"
+        android:textColor="#2f2f2f"
+        android:textSize="40dp"
         android:id="@+id/newscore"
-        android:layout_alignLeft="@+id/bestscore"
-        android:layout_below="@+id/bestscore"/>
+        android:layout_toRightOf="@+id/best"
+        android:layout_marginLeft="20dp"
+        android:fontFamily="@font/math_tapping"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="0"
+        android:textSize="40dp"
+        android:textColor="#2f2f2f"
+        android:id="@+id/bestscore"
+        android:layout_alignLeft="@+id/newscore"
+        android:layout_below="@+id/newscore"
+        android:fontFamily="@font/math_tapping"/>
+    <TextView
+        android:id="@+id/iconNew"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#ff0004"
         android:text="NEW"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        android:id="@+id/new_point"
-        android:layout_below="@+id/best"
-        android:layout_alignLeft="@+id/best"/>
+        android:layout_alignTop="@+id/bestscore"
+        android:layout_toRightOf="@+id/bestscore"
+        android:layout_toEndOf="@+id/bestscore"
+        android:fontFamily="@font/math_tapping" />
 
     <ImageButton
         android:id="@+id/repl"
@@ -53,11 +75,8 @@
         android:src="@drawable/replay"
         android:scaleType="fitXY"
         android:background="@drawable/custom_button_in_dialog"
-        android:layout_below="@+id/newscore"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="37dp"
-        android:layout_marginStart="37dp" />
+        android:layout_marginLeft="30dp"
+        android:layout_below="@+id/new_point"/>
 
     <ImageButton
         android:id="@+id/home"
@@ -67,18 +86,19 @@
         android:background="@drawable/custom_button_in_dialog"
         android:src="@drawable/home"
         android:layout_alignTop="@+id/repl"
-        android:layout_toRightOf="@+id/new_point"
-        android:layout_toEndOf="@+id/new_point" />
+        android:layout_toRightOf="@+id/repl"
+        android:layout_marginLeft="30dp"/>
 
-    <TextView
-        android:id="@+id/iconNew"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#ff0004"
-        android:text="NEW"
-        android:layout_alignTop="@+id/bestscore"
-        android:layout_toRightOf="@+id/bestscore"
-        android:layout_toEndOf="@+id/bestscore" />
+    <ImageButton
+        android:id="@+id/rank"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:scaleType="fitXY"
+        android:background="@drawable/custom_button_in_dialog"
+        android:src="@drawable/rank"
+        android:layout_toRightOf="@id/home"
+        android:layout_marginLeft="30dp"
+        android:layout_alignTop="@id/repl"/>
 
 
 </RelativeLayout>

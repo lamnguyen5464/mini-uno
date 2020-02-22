@@ -15,15 +15,29 @@
         android:layout_centerHorizontal="true" />
 
     <ImageButton
-        android:background="@android:color/transparent"
+        android:background="@drawable/imageviewborder"
         android:id="@+id/imageButton"
         android:layout_width="160dp"
         android:layout_height="240dp"
         android:scaleType="fitXY"
+        android:padding="2dp"
         android:src="@drawable/red5"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_marginBottom="70dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="160dp"
+        android:layout_height="240dp"
+        android:layout_alignTop="@+id/imageButton"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="2dp"
+        android:layout_marginRight="4dp"
+        android:background="@drawable/imageviewborder"
+        android:padding="2dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/green0" />
 
     <com.google.android.gms.ads.AdView
         xmlns:ads="http://schemas.android.com/apk/res-auto"
@@ -35,17 +49,6 @@
         ads:adSize="BANNER"
         ads:adUnitId="@string/banner">
     </com.google.android.gms.ads.AdView>
-
-    <ImageButton
-        android:id="@+id/imageButton2"
-        android:layout_width="160dp"
-        android:layout_height="240dp"
-        android:background="@android:color/transparent"
-        android:scaleType="fitXY"
-        android:src="@drawable/green0"
-        android:layout_alignTop="@+id/imageButton"
-        android:layout_alignParentRight="true"
-        />
 
     <ProgressBar
         android:id="@+id/progressBar"
